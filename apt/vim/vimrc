@@ -1,0 +1,49 @@
+set number
+set rnu
+
+syntax on
+set path+=**
+
+filetype plugin indent on
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+set wildmenu
+set hidden
+
+call plug#begin('~/vimplugins')
+
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'tpope/vim-fugitive'
+
+call plug#end()
+
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gi <plug>(lsp-declaration)
+    nmap <buffer> gr <plug>(lsp-references)
+    nmap <buffer> gl <plug>(lsp-document-diagnostics)
+    nmap <buffer> <f2> <plug>(lsp-rename)
+    nmap <buffer> <f3> <plug>(lsp-hover)
+endfunction
+augroup lsp_install
+    au!
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+set spell
+set is
+set ignorecase
+set smartcase
+set gp=git\ grep\ -n
+set ruler
+set re=0
+
+vnoremap \y :w !pbcopy -selection clipboard<CR><CR>
+
+colorscheme slate
+
+let g:lsp_diagnostics_enabled = 0
