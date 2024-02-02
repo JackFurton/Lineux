@@ -1,5 +1,6 @@
 require("theprimeagen.set")
 require("theprimeagen.remap")
+require("theprimeagen.jenkins")
 
 require("theprimeagen.lazy_init")
 
