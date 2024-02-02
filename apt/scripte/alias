@@ -1,3 +1,0 @@
-alias vimoff='sed -i "s/^\\s*\"\\s*let g:lsp_diagnostics_enabled = 0/let g:lsp_diagnostics_enabled = 0/" ~/.vimrc'
-alias vimon='sed -i "s/^\\s*let g:lsp_diagnostics_enabled = 0/\" let g:lsp_diagnostics_enabled = 0/" ~/.vimrc'
-
